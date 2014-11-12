@@ -25,6 +25,7 @@ var Entry = Backbone.Model.extend({
     defaults: {
         comments: []
         body: "",
+        headline: ""
     },
 
     initialize: function() {
@@ -33,7 +34,8 @@ var Entry = Backbone.Model.extend({
         this.comments.url = function() {
             return self.url() + '/comments';
         };
-    };
+    },
+
 });
 
 var CommentCollection = Backbone.Collection.extend({
