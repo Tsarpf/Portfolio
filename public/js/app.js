@@ -2,15 +2,18 @@
 var Blog = Backbone.Model.extend({
     defaults: {
         entries: []
+        backgroundPicture = "defaultBackground.jpg";
     },
 
     initialize: function() {
         var self = this;
-        this.entries= new EntryCollection(this.get('entries'));
+        this.entries = new EntryCollection(this.get('entries'));
         this.entries.url = function() {
             return self.url() + '/entries';
         };
     },
+
+    urlRoot: '/blog'
 });
 
 var EntryCollection = Backbone.Collection.extend({
@@ -20,9 +23,17 @@ var EntryCollection = Backbone.Collection.extend({
 
 var Entry = Backbone.Model.extend({
     defaults: {
-        body: "",
         comments: []
-    }
+        body: "",
+    },
+
+    initialize: function() {
+        var self = this;
+        this.comments = new CommentCollection(this.get('comments'));
+        this.comments.url = function() {
+            return self.url() + '/comments';
+        };
+    };
 });
 
 var CommentCollection = Backbone.Collection.extend({
