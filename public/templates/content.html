@@ -5,7 +5,8 @@
             <div><%- entry.get('body') %> </div>
 
             <% _.each(comments, function(comment) { %>
-            <q> <%- comment.get('body') %> </q>
-            <small> <%- comment.get('nickname') %> </small>
+                <q> <%- comment.get('body') %> </q>
+                <small> <%- comment.get('nickname') %> </small>
+            <% }); %>
 </div>
 </script>
