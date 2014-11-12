@@ -1,17 +1,16 @@
-<script type="text/template" id="entry-template">
 <div>
-            <h1><%- entry.get('headline') %></h1>
+            <h2><%- entry.get('headline') %></h2>
 
             <div><%- entry.get('body') %> </div>
 
 
             <% _.each(entry.get('comments'), function(comment) { %>
+                <% console.log(comment); %>
 
-                <q> <%- comment.get('body') %> </q>
+                <q> <%- comment.body %> </q>
 
-                <small> <%- comment.get('nickname') %> </small>
+                <small> <%- comment.nickname  %> </small>
 
             <% }); %>
 
 </div>
-</script>

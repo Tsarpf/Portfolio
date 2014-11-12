@@ -5,9 +5,10 @@ var EntryView = Backbone.View.extend({
     render: function() {
         var self = this;
 
-        $.get('templates/content.html', function(data) {
-            var template = _.template(data, {entry: self.model});
-            self.$el.html(template);
+        $.get('templates/entry.html', function(data) {
+            var template = _.template(data);
+            self.$el.html(template({entry: self.model}));
+            console.log(self.el);
         }, 'html');
     }
 });

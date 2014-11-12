@@ -6,11 +6,9 @@ var Blog = Backbone.Model.extend({
 
     initialize: function() {
         var self = this;
-        console.log('this.entries');
-        console.log(this.entries);
+        console.log('entries');
+        console.log(this.get('entries')); 
         this.entries = new EntryCollection(this.get('entries'));
-        console.log('this.entries');
-        console.log(this.entries);
         this.entries.url = function() {
             return self.url() + '/entries';
         };

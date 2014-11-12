@@ -9,12 +9,15 @@ var ContentView = Backbone.View.extend({
         var self = this;
         this.$el.empty();
         this.model.entries.each(function(entry) {
-            if(this.drawComments) {
+            if(self.drawComments) {
                entry.comments.fetch(); 
             }
-            console.log('entry');
-            console.log(entry);
-            self.$el.append(new EntryView({model: entry}).render().el);
+            var entryView = new EntryView({model: entry});
+            entryView.render();
+
+            console.log(entryView.el);
+
+            self.$el.append(entryView.el);
         });
     }
 });

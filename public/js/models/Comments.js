@@ -1,8 +1,3 @@
-var CommentCollection = Backbone.Collection.extend({
-    model: Comment,
-    url: function() { return '/comments';}
-});
-
 var Comment = Backbone.Model.extend({
     defaults: {
         body: "",
@@ -10,3 +5,9 @@ var Comment = Backbone.Model.extend({
         loggedIn: false
     }
 });
+
+var CommentCollection = Backbone.Collection.extend({
+    model: Comment,
+    url: function() { return '/comments';}
+});
+

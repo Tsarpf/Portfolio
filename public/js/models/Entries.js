@@ -1,8 +1,3 @@
-var EntryCollection = Backbone.Collection.extend({
-    model: Entry,
-    url: function() { return '/entries'; }
-});
-
 var Entry = Backbone.Model.extend({
     defaults: {
         comments: [],
@@ -12,17 +7,20 @@ var Entry = Backbone.Model.extend({
 
     initialize: function() {
         var self = this;
-        var comments = this.get('comments');
-        if(comments) {
-            this.comments = new CommentCollection(comments);
-        }
-        else {
-            this.comments = new CommentCollection([]); //TODO: check if passing undefined is fine too
-        }
+
+        console.log('comments');
+        console.log(this.get('comments'));
+        this.comments = new CommentCollection(this.get('comments'));
+
         this.comments.url = function() {
             return self.url() + '/comments';
         };
     },
 
+});
+
+var EntryCollection = Backbone.Collection.extend({
+    model: Entry,
+    url: function() { return '/entries'; }
 });
 

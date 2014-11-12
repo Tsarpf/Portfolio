@@ -23,6 +23,9 @@ module.exports = function(app) {
 
     var getCommentById = function(blogId, entryId, commentId) {
         var obj = {
+            id: commentId,
+            entryId: entryId,
+            blogId: blogId,
             body: "This is a comment",
             nickname: "Testuser",
             loggedIn: false
