@@ -4,7 +4,7 @@ module.exports = function(app) {
         var obj = {
             id: id,
             entries: [getEntryById(id, 0)],
-            backgroundPicture = "/media/defaultBackground.jpg";
+            backgroundPicture: "/media/defaultBackground.jpg"
         }
 
         return obj;

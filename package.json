@@ -6,5 +6,9 @@
     "express": "*",
     "mongoose": "*",
     "body-parser": "*"
+  },
+
+  "scripts": {
+      "start": "node ./server/server.js"
   }
 }

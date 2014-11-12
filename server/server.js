@@ -9,7 +9,7 @@ var express = require('express'),
 var pub = __dirname + '../public';
 app.use(express.static(pub));
 
-app.use(bodyParser.urlencoded({extended: true});
+app.use(bodyParser.urlencoded({extended: true}));
 
 var port = 3500;
 var server = app.listen(port, function() {
