@@ -6,7 +6,7 @@ var express = require('express'),
 
 
 
-var pub = __dirname + '../public';
+var pub = __dirname + '/../public';
 app.use(express.static(pub));
 
 app.use(bodyParser.urlencoded({extended: true}));

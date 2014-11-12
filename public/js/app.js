@@ -1,8 +1,8 @@
 
 var Blog = Backbone.Model.extend({
     defaults: {
-        entries: []
-        backgroundPicture = "defaultBackground.jpg";
+        entries: [],
+        backgroundPicture: "defaultBackground.jpg"
     },
 
     initialize: function() {
@@ -23,7 +23,7 @@ var EntryCollection = Backbone.Collection.extend({
 
 var Entry = Backbone.Model.extend({
     defaults: {
-        comments: []
+        comments: [],
         body: "",
         headline: ""
     },
