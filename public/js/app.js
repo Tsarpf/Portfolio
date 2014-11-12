@@ -30,7 +30,13 @@ var Entry = Backbone.Model.extend({
 
     initialize: function() {
         var self = this;
-        this.comments = new CommentCollection(this.get('comments'));
+        var comments = this.get('comments');
+        if(comments) {
+            this.comments = new CommentCollection(comments);
+        }
+        else {
+            this.comments = new CommentCollection([]); //TODO: check if passing undefined is fine too
+        }
         this.comments.url = function() {
             return self.url() + '/comments';
         };
