@@ -1,9 +1,17 @@
 module.exports = function(app) {
 
-    var getPlaceholderBlogById = function(id) {
+    var getBlogById = function(id) {
         var obj = {
             id: id,
-            entries: [getEntryById(id, 0)],
+            entries: [
+                getEntryById(id, 0),
+                getEntryById(id, 1),
+                getEntryById(id, 2),
+                getEntryById(id, 4),
+                getEntryById(id, 5),
+                getEntryById(id, 6),
+
+            ],
             backgroundPicture: "/media/defaultBackground.jpg"
         }
 
@@ -35,7 +43,7 @@ module.exports = function(app) {
 
     app.get('/blog/:id', function(req, res) {
         var id = req.params.id;
-        var obj = getPlaceholderBlogById(id);
+        var obj = getBlogById(id);
         res.json(obj);
     });
 
