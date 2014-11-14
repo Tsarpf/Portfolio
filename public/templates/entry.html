@@ -1,16 +1,17 @@
-<div>
-            <h2><%- entry.get('headline') %></h2>
+<div class="entry-container well">
+        <h2><%- entry.get('headline') %></h2>
 
-            <div><%- entry.get('body') %> </div>
+        <div><%= entry.get('body') %> </div>
 
 
-            <% _.each(entry.get('comments'), function(comment) { %>
-                <% console.log(comment); %>
+        <% _.each(entry.get('comments'), function(comment) { %>
+            <div class="pf-comments well">
 
                 <q> <%- comment.body %> </q>
-
+                <br/>
                 <small> <%- comment.nickname  %> </small>
 
-            <% }); %>
+            </div>
 
+        <% }); %>
 </div>
