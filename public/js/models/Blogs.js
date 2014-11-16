@@ -1,5 +1,7 @@
 var Blog = Backbone.Model.extend({
     defaults: {
+        name: "Default blog name",
+        owner: "Default blog owner",
         entries: [],
         backgroundPicture: "defaultBackground.jpg"
     },

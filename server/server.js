@@ -18,4 +18,5 @@ var server = app.listen(port, function() {
 
 
 require('./routes')(app);
+require('./apiRoutes')(app);
 
