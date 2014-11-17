@@ -6,13 +6,6 @@ module.exports = function(app) {
             title: "Default blog title " + id,
             owner: "Default blog owner",
             entries: [
-                getEntryById(id, 0),
-                getEntryById(id, 1),
-                getEntryById(id, 2),
-                getEntryById(id, 3),
-                getEntryById(id, 4),
-                getEntryById(id, 5),
-
             ],
             backgroundPicture: "/media/defaultBackground.jpg"
         }
@@ -71,13 +64,16 @@ module.exports = function(app) {
     app.get('/get/blog/:id', function(req, res) {
         var id = req.params.id;
         var obj = getBlogById(id);
+        obj.entries.push(getEntryById(id, 0));
+        obj.entries.push(getEntryById(id, 1));
         res.json(obj);
     });
 
     app.get('/get/blog/:blogid/entries/:entryid', function(req, res) {
         var blogId = req.params.blogid;
         var entryId = req.params.entryid;
-        var obj = getEntryById(blogId, entryId);
+        var obj = getBlogById(blogId)
+        obj.entries.push(getEntryById(blogId, entryId));
         res.json(obj);
     });
 

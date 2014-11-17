@@ -10,7 +10,14 @@ var ContentView = Backbone.View.extend({
         this.$el.empty();
 
         if(this.model.get('title')) {
-            var headerView = new HeaderView({title: this.model.get('title'), owner: this.model.get('owner')});
+
+            var obj = {
+                title: this.model.get('title'),
+                owner: this.model.get('owner'),
+                blogId: this.model.get('id')
+            }
+
+            var headerView = new HeaderView(obj);
             headerView.render();
         }
 
