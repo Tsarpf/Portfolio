@@ -64,8 +64,15 @@ module.exports = function(app) {
     app.get('/get/blog/:id', function(req, res) {
         var id = req.params.id;
         var obj = getBlogById(id);
-        obj.entries.push(getEntryById(id, 0));
-        obj.entries.push(getEntryById(id, 1));
+        var entries = [
+            getEntryById(id, 0),
+            getEntryById(id, 1),
+        ]
+        //emulate _not_ populating comment fields
+        delete entries[0].comments;
+        delete entries[1].comments;
+
+        obj.entries = entries;
         res.json(obj);
     });
 
