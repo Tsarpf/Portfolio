@@ -3,7 +3,7 @@ module.exports = function(app) {
     var getBlogById = function(id) {
         var obj = {
             id: id,
-            name: "Default blog name",
+            title: "Default blog title" + id,
             owner: "Default blog owner",
             entries: [
                 getEntryById(id, 0),
@@ -26,7 +26,7 @@ module.exports = function(app) {
             id: entryId,
             comments: [getCommentById(blogId, entryId, 0)],
             body: "The path of a cosmonaut is not an easy, triumphant march to glory. You have to get to know the meaning not just of joy but also of grief, before being allowed in the spacecraft cabin.\nWhat was most significant about the lunar voyage was not that man set foot on the Moon but that they set eye on the earth.\nWe want to explore. We’re curious people. Look back over history, people have put their lives at stake to go out and explore … We believe in what we’re doing. Now it’s time to go.",
-            headline: "I'm a header"
+            headline: "I'm a header" + id
         }
         return obj;
     }
@@ -42,6 +42,18 @@ module.exports = function(app) {
         }
         return obj;
     }
+
+    var getBlogPage = function(pageNum) {
+
+    }
+
+    app.get('/get', function(req, res) {
+        
+    });
+
+    app.get('/get/blog/page/:pageNum', function(req, res) {
+        var pageNum = req.params.pageNum;
+    });
 
     app.get('/get/blog/:id', function(req, res) {
         var id = req.params.id;

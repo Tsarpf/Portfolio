@@ -8,14 +8,15 @@ var ContentView = Backbone.View.extend({
     render: function() {
         var self = this;
         this.$el.empty();
+
+        if(this.model.get('title')) {
+            var headerView = new HeaderView({title: this.model.get('title'), owner: this.model.get('owner')});
+            headerView.render();
+        }
+
         this.model.entries.each(function(entry) {
-            if(self.drawComments) {
-               entry.comments.fetch(); 
-            }
             var entryView = new EntryView({model: entry});
             entryView.render();
-
-            console.log(entryView.el);
 
             self.$el.append(entryView.el);
         });

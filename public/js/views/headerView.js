@@ -10,7 +10,7 @@ var HeaderView = Backbone.View.extend({
 
         $.get('/templates/header.html', function(data) {
             var template = _.template(data);
-            self.$el.html(template(this.header));
+            self.$el.html(template({header: self.header}));
         }, 'html');
     }
 });
