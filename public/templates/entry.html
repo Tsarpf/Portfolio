@@ -1,5 +1,5 @@
 <div class="entry-container well">
-        <h2><%- entry.get('headline') %></h2>
+    <h3><a href="/blog/<%= entry.get('blogId')+'/entries/'+entry.get('id') %>"><%- entry.get('headline') %></a></h3>
 
         <div><%= entry.get('body') %> </div>
 
