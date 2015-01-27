@@ -6,4 +6,4 @@ F.ex, when rendering the same static page over and over again, it should probabl
 
 
 There is a chance it might be running here:
-http://128.199.52.104:3500/
+http://prototyping.xyz:3500
